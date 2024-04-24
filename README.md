@@ -1,2 +1,5 @@
 # Docker_Practices
-runnable
+
+
+Added docker file,
+also added pipfile and pipfile.lock
