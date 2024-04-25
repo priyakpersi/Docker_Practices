@@ -7,13 +7,17 @@ LABEL maintainer = "Sample Test.. "
 LABEL description = "Creating sample dockerfile using ubi9 image.."
 
 
-RUN yum install -y git
+RUN yum install -y python39
 
-COPY . /app
+RUN python3.9 -m pip install micropipenv
 
-WORKDIR /app
+WORKDIR /app/
 
-EXPOSE 8080
+COPY Pipfile Pipfile.lock /app/
+
+RUN micropipenv install --deploy
+
+COPY . /app/
 
 CMD ["echo","Hello World!"]
 
